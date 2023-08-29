@@ -29,10 +29,10 @@ svn co https://github.com/ophub/luci-app-amlogic/trunk/luci-app-amlogic package/
 # git apply ../config/patches/{0001*,0002*}.patch --directory=feeds/luci
 #
 # hostname
-sed -i "s/ImmortalWrt/TRW/g" package/base-files/files/bin/config_generate
+sed -i "s/ImmortalWrt/TRWRIBET/g" package/base-files/files/bin/config_generate
 
 # ssid
-sed -i "s/ImmortalWrt/TRW/g" package/kernel/mac80211/files/lib/wifi/mac80211.sh
+sed -i "s/ImmortalWrt/TRWRIBET/g" package/kernel/mac80211/files/lib/wifi/mac80211.sh
 # php7 max_size
 sed -i -e "s/upload_max_filesize = 2M/upload_max_filesize = 1024M/g" -e "s/post_max_size = 8M/post_max_size = 1024M/g" feeds/packages/lang/php7/files/php.ini
 

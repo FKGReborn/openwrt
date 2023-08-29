@@ -69,6 +69,15 @@ sed -i "s/+luci-theme-bootstrap //" feeds/luci/collections/luci/Makefile
 # interface
 sed -i "9 i\uci set network.wan1=interface\nuci set network.wan1.proto='dhcp'\nuci set network.wan1.device='eth1'\nuci set network.wan2=interface\nuci set network.wan2.proto='dhcp'\nuci set network.wan2.device='wwan0'\nuci set network.wan3=interface\nuci set network.wan3.proto='dhcp'\nuci set network.wan3.device='usb0'\nuci commit network\n" package/emortal/default-settings/files/99-default-settings
 sed -i "20 i\uci add_list firewall.@zone[1].network='wan1'\nuci add_list firewall.@zone[1].network='wan2'\nuci add_list firewall.@zone[1].network='wan3'\nuci commit firewall\n" package/emortal/default-settings/files/99-default-settings
-
+# oh-my-zsh
+mkdir -p files/root
+pushd files/root
+git clone https://github.com/robbyrussell/oh-my-zsh ./.oh-my-zsh
+git clone https://github.com/zsh-users/zsh-autosuggestions ./.oh-my-zsh/custom/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ./.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-completions ./.oh-my-zsh/custom/plugins/zsh-completions
+cp $GITHUB_WORKSPACE/include/common-files/patches/zsh/.zshrc .
+cp $GITHUB_WORKSPACE/include/common-files/patches/zsh/example.zsh ./.oh-my-zsh/custom/example.zsh
+popd
 # ------------------------------- Other ends -------------------------------
 

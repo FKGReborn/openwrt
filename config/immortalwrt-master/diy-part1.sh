@@ -11,4 +11,5 @@
 
 # other
 # rm -rf package/emortal/{autosamba,ipv6-helper}
-
+sed -i '$a src-git lynxnexy https://github.com/lynxnexy/packages' feeds.conf.default
+sed -i '$a src-git modemfeed https://github.com/koshev-msk/modemfeed' feeds.conf.default
